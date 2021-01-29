@@ -1,8 +1,8 @@
 import React from "react";
-import {GiftItem} from "../GiftItem/GiftItem.layout";
+import GiftListItem from "../GiftListItem/GiftListItem";
 
 export function GiftList() {
     return (
-        <GiftItem />
+        <GiftListItem />
     )
 }
