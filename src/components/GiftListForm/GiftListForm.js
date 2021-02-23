@@ -3,6 +3,12 @@ import {connect} from "react-redux";
 import {reduxForm} from "redux-form";
 import {saveNewGiftList} from "../../actions";
 
+function mapStateToProps(state) {
+    return {
+        initialValues: {giftRecipient: "lol"}
+    }
+}
+
 function mapDispatchToProps(dispatch) {
     return {
         onSubmitHandler: function (newGiftList) {
@@ -12,8 +18,6 @@ function mapDispatchToProps(dispatch) {
 
 }
 
-export default connect(() => {
-    return {
-        initialValues: {giftRecipient: "lol"}
-    }
-}, mapDispatchToProps)(reduxForm({form: "GIFT_LIST_FORM"})(GiftListForm));
+const WrappedGiftListForm = reduxForm({form: "GIFT_LIST_FORM"})(GiftListForm);
+
+export default connect(mapStateToProps, mapDispatchToProps)(WrappedGiftListForm);
