@@ -1,18 +1,32 @@
 import {combineReducers} from "redux";
+import {reducer} from "redux-form";
+import {SAVE_NEW_GIFT_LIST} from "./actions";
 
 const preloadedState = { giftList: [{
         giftRecipient: "Mateusz",
-        gift1: "aaa",
-        gift2: "bbb"
+        gifts: ["aaa", "bbb"],
+        creationDate: 1613937775725
     }, {giftRecipient: "Ola",
-        gift1: "ccc",
-        gift2: "ddd"}]};
+        gifts: ["aaa", "bbb"],
+        creationDate: 1613937775726}]};
 
 export const rootReducer = combineReducers({
     list: function (state = preloadedState, action) {
-        return {
-            ...state,
-            giftList: state.giftList
-        }
-    }
+
+        const handlers = {
+            [SAVE_NEW_GIFT_LIST]: function () {
+                return {
+                    ...state,
+                    giftList: state.giftList.concat({
+                        ...action.payload,
+                        creationDate: Date.now()
+                    })
+                }
+            }
+        };
+
+
+        return handlers[action.type] ? handlers[action.type]() : state
+    },
+    form: reducer
 });
