@@ -1,8 +1,9 @@
 import React from 'react';
-import GiftList from "../GiftList/GiftList";
-import GiftListForm from "../GiftListForm/GiftListForm";
+import ListOfGiftLists from "../ListOfGiftLists/ListOfGiftLists";
+import EditGiftListForm from "../GiftListForm/EditGiftListForm";
 import {BrowserRouter as Router, Link, Route, Switch} from "react-router-dom";
 import {GiftListDetails} from "../GiftListDetails/GiftListDetails.layout";
+import NewGiftListForm from "../GiftListForm/NewGiftListForm";
 
 export function GiftListApp() {
     return (
@@ -10,12 +11,12 @@ export function GiftListApp() {
             <Switch>
 
                 <Route path="/" exact>
-                    <GiftList/>
+                    <ListOfGiftLists/>
                     <Link to="/edit">Add new gift list</Link>
                 </Route>
 
                 <Route path="/edit/:id">
-                    <GiftListForm />
+                    <EditGiftListForm />
                     <Link to="/">Go back</Link>
                 </Route>
 
@@ -25,7 +26,7 @@ export function GiftListApp() {
                 </Route>
 
                 <Route path="/edit/">
-                    <GiftListForm />
+                    <NewGiftListForm />
                     <Link to="/">Go back</Link>
                 </Route>
 

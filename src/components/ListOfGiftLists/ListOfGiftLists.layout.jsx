@@ -1,7 +1,7 @@
 import React from "react";
 import GiftListItems from "../GiftListItems/GiftListItems";
 
-export function GiftList() {
+export function ListOfGiftLists() {
     return (
         <GiftListItems />
     )

@@ -2,7 +2,7 @@ import React from "react";
 
 export function GiftListDetails(props) {
 
-    const giftListDetails = props.giftList.find(
+    const giftListDetails = props.listOfGiftLists.find(
         (giftList) => giftList.creationDate.toString() === props.match.params.id);
 
 return giftListDetails ? (

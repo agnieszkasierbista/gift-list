@@ -1,5 +1,5 @@
 import {connect} from "react-redux";
-import {GiftListItems} from "./GiftListItems.layout";
+import {GiftList} from "./GiftListItems.layout";
 
 
 export function mapStateToProps(state) {
@@ -13,4 +13,4 @@ export function mapDispatchToProps(dispatch) {
     return {}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(GiftListItems);
+export default connect(mapStateToProps, mapDispatchToProps)(GiftList);

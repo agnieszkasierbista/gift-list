@@ -1,23 +1,9 @@
-import {GiftListForm} from "./GiftListForm.layout";
-import {connect} from "react-redux";
-import {reduxForm} from "redux-form";
-import {saveNewGiftList} from "../../actions";
+export function mapStateToProps(state, ownProps) {
 
-function mapStateToProps(state) {
+    const giftList = state.list.listOfGiftLists.find(
+        (giftList) => giftList.creationDate.toString() === ownProps.match.params.id);
+
     return {
-        initialValues: {giftRecipient: "lol"}
+        initialValues: giftList || {}
     }
 }
-
-function mapDispatchToProps(dispatch) {
-    return {
-        onSubmitHandler: function (newGiftList) {
-            dispatch(saveNewGiftList(newGiftList))
-        }
-    }
-
-}
-
-const WrappedGiftListForm = reduxForm({form: "GIFT_LIST_FORM"})(GiftListForm);
-
-export default connect(mapStateToProps, mapDispatchToProps)(WrappedGiftListForm);
