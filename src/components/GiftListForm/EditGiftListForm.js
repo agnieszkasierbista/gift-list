@@ -3,7 +3,16 @@ import {connect} from "react-redux";
 import {reduxForm} from "redux-form";
 import {saveEditedGiftList} from "../../actions";
 import {withRouter} from "react-router-dom";
-import {mapStateToProps} from "./GiftListForm";
+
+export function mapStateToProps(state, ownProps) {
+
+    const giftList = state.list.listOfGiftLists.find(
+        (giftList) => giftList.creationDate.toString() === ownProps.match.params.id);
+
+    return {
+        initialValues: giftList || {}
+    }
+}
 
 function mapDispatchToProps(dispatch) {
     return {
