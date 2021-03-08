@@ -2,7 +2,7 @@ import React from 'react';
 import ListOfGiftLists from "../ListOfGiftLists/ListOfGiftLists";
 import EditGiftListForm from "../GiftListForm/EditGiftListForm";
 import {BrowserRouter as Router, Link, Route, Switch} from "react-router-dom";
-import {GiftListDetails} from "../GiftListDetails/GiftListDetails.layout";
+import GiftListDetails from "../GiftListDetails/GiftListDetails";
 import NewGiftListForm from "../GiftListForm/NewGiftListForm";
 
 export function GiftListApp() {
