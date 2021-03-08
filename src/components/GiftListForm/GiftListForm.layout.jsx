@@ -8,18 +8,26 @@ function renderGifts({fields}) {
         </button>
         {
             fields.map((fieldName, index) => {
-                return <>
-                    <Field
-                        name={fieldName}
-                        component="input"
-                        type="text"
+                return (
+                    <div
                         key={index}
-                    />
-                    <button
-                        onClick={() => fields.remove(index)}
-                    > X
-                    </button>
-                </>
+                    >
+                        <Field
+                            name={fieldName}
+                            component="input"
+                            type="text"
+                        />
+                        <button
+                            onClick={(event) => {
+
+                                event.preventDefault();
+
+                                return fields.remove(index);
+                            }}
+                        > X
+                        </button>
+                    </div>
+                )
             })
         }
     </>
