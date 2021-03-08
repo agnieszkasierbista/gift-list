@@ -35,6 +35,7 @@ export function GiftListForm({handleSubmit, onSubmitHandler}) {
                 name="giftRecipient"
                 component="input"
                 type="text"
+                required
             />
             <div>Gift:</div>
             <FieldArray
