@@ -4,7 +4,7 @@ import {SAVE_EDITED_GIFT_LIST, SAVE_NEW_GIFT_LIST} from "./actions";
 
 const preloadedState = { listOfGiftLists: [{
         giftRecipient: "Mateusz",
-        gifts: ["aaa", "bbb"],
+        gifts: ["aaa", "bbb", "ccc"],
         creationDate: 1613937775725
     }, {giftRecipient: "Ola",
         gifts: ["aaa", "bbb"],
