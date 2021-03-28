@@ -1,6 +1,6 @@
 import {combineReducers} from "redux";
 import {reducer} from "redux-form";
-import {SAVE_EDITED_GIFT_LIST, SAVE_NEW_GIFT_LIST} from "./actions";
+import {INITIALIZE_LIST, SAVE_EDITED_GIFT_LIST, SAVE_NEW_GIFT_LIST} from "./actions";
 
 const preloadedState = { listOfGiftLists: [{
         giftRecipient: "Mateusz",
@@ -29,6 +29,12 @@ export const rootReducer = combineReducers({
                     listOfGiftLists: state.listOfGiftLists.map((list) => {
                         return list.creationDate === action.payload.creationDate ? action.payload : list
                     })
+                }
+            },
+            [INITIALIZE_LIST]: function () {
+                return {
+                    ...state,
+                    listOfGiftLists: action.payload
                 }
             }
 

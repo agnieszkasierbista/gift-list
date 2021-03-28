@@ -5,7 +5,15 @@ import {BrowserRouter as Router, Link, Route, Switch} from "react-router-dom";
 import GiftListDetails from "../GiftListDetails/GiftListDetails";
 import NewGiftListForm from "../GiftListForm/NewGiftListForm";
 
-export function GiftListApp() {
+export function GiftListApp({dispatchGetInitialList}) {
+
+    React.useEffect(
+        () => {
+            dispatchGetInitialList();
+        },
+        []
+    );
+
     return (
         <Router>
             <Switch>
@@ -16,17 +24,17 @@ export function GiftListApp() {
                 </Route>
 
                 <Route path="/edit/:id">
-                    <EditGiftListForm />
+                    <EditGiftListForm/>
                     <Link to="/">Go back</Link>
                 </Route>
 
                 <Route path="/details/:id">
-                    <GiftListDetails />
+                    <GiftListDetails/>
                     <Link to="/">Go back</Link>
                 </Route>
 
                 <Route path="/edit/">
-                    <NewGiftListForm />
+                    <NewGiftListForm/>
                     <Link to="/">Go back</Link>
                 </Route>
 
